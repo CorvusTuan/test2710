@@ -3,7 +3,7 @@ Bài kiểm tra thử
 
 tải tất cả tập tin về máy
 
-giải nén trong htdocs cảm xampp
+giải nén trong htdocs của xampp
 
 đẩy file sql lên phpmyadmin
 
