@@ -6,6 +6,20 @@
 </head>
 <body>
 	<form action="" method="POST" onsubmit="return validate()">
+	<?php 
+	$conn = new mysqli('localhost','root','','test') or die('kết nối thất bại');
+	$sql = "SELECT alias FROM nv4_vi_location_province";
+	$result = mysqli_query($conn,$sql);
+	if (mysqli_num_rows($result) > 0){
+		while($row = mysqli_fetch_assoc($result)){
+			echo "test:" .$row["alias"]."<br>";
+		}
+	}else{
+		echo "lỗi";
+	}
+	?>
+	
+
 		<div class="register">
 			<h1>Đăng ký</h1>
 			<p>Vui lòng điền thông tin để đăng ký</p>
@@ -19,9 +33,22 @@
 			<input type="email" placeholder="Email" name="email" id="email">
 
 			<label for="email"><b>Địa chỉ</b></label>
+			<select name="province" id="province">
+			<?php
+            foreach ($wards as $ward){
+                ?>
+                <option value="<?= $ward[1] ?>"><?= $ward[0] ?></option>
+                <?php
+            }
+            ?>
+				
+			</select>
+			<!--
 			<input type="text" placeholder="Thành phố" name="province" id="province">
 			<input type="text" placeholder="Quận/Huyện" name="district" id="district">
 			<input type="text" placeholder="Xã/Phường" name="ward" id="ward">
+			-->
+			
 			
 
 			<label for=""></label>
